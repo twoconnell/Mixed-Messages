@@ -17,11 +17,11 @@ const adjective = [
 
 // Second array containing random first parts of sentences
 const opening = [
-  "You are a ",
-  "Would you like a ",
+  "You are ",
+  "Would you like ",
   "Have you seen the ",
   "Which way to the ",
-  "You've got a ",
+  "You've got ",
 ];
 
 // Third array containing random final parts of sentences
@@ -34,11 +34,34 @@ const closing = [
   " personality",
 ];
 
-let randomAdj = Math.floor(Math.random() * 12);
+let randomAdj = Math.floor(Math.random() * adjective.length);
 
-let randomOpen = Math.floor(Math.random() * 5);
+let randomOpen = Math.floor(Math.random() * opening.length);
 
-let randomClose = Math.floor(Math.random() * 6);
+let randomClose = Math.floor(Math.random() * closing.length);
 
+let punct = "";
 
-console.log(opening[randomOpen] + adjective[randomAdj] + closing[randomClose]);
+let grammaer = "";
+
+if (randomOpen == 0 || randomOpen == 4) {
+  punct = "!";
+} else {
+  punct = "?";
+}
+
+if (randomOpen == 2 || randomOpen == 3) {
+  grammar = "";
+} else if (randomAdj == 2 || randomAdj == 8) {
+  grammar = "an ";
+} else {
+  grammar = "a ";
+}
+
+console.log(
+  opening[randomOpen] +
+    grammar +
+    adjective[randomAdj] +
+    closing[randomClose] +
+    punct
+);
